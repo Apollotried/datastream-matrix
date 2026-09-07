@@ -11,4 +11,4 @@ schema.yml
 *.pem
 *.pem~
 celerybeat-schedule
-datasets/
+/datasets/
