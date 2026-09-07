@@ -53,7 +53,7 @@ def list_dataset_records(
     queryset = DatasetRecord.objects.filter(dataset=dataset)
 
     if customer_email:
-        queryset = queryset.filter(customer_email=customer_email)
+        queryset = queryset.filter(customer_email__icontains=customer_email)
 
     if purchased_at_from:
         queryset = queryset.filter(purchased_at__gte=purchased_at_from)

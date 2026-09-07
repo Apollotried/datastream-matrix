@@ -109,7 +109,11 @@ class DatasetRecordSerializer(serializers.ModelSerializer):
 class DatasetRecordFilterSerializer(serializers.Serializer):
     """Validate dataset record list query parameters."""
 
-    customer_email = serializers.EmailField(required=False)
+    customer_email = serializers.CharField(
+        required=False,
+        allow_blank=True,
+        max_length=254,
+    )
     purchased_at_from = serializers.DateField(required=False)
     purchased_at_to = serializers.DateField(required=False)
 

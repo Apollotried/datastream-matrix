@@ -53,6 +53,15 @@ class DatasetRecordsFilterAPITests(APITestCase):
         self.assertEqual(response.data["count"], 1)
         self.assertEqual(response.data["results"][0]["id"], str(self.alice_record.id))
 
+    def test_records_filter_accepts_partial_customer_email(self) -> None:
+        self.client.force_authenticate(user=self.owner)
+
+        response = self.client.get(self.url, {"customer_email": "ali"})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["count"], 1)
+        self.assertEqual(response.data["results"][0]["id"], str(self.alice_record.id))
+
     def test_records_filter_by_purchased_at_range(self) -> None:
         self.client.force_authenticate(user=self.owner)
 
