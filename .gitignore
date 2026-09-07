@@ -1,0 +1,14 @@
+.venv/
+.env
+__pycache__/
+*.py[cod]
+db.sqlite3
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+schema.yml
+.env.production
+*.pem
+*.pem~
+celerybeat-schedule
+datasets/
